@@ -17,6 +17,7 @@
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvF1WSjBTUnTzPCJL9fnrsRnf2WBE-BcY&sensor=false"></script>
     </head>
     <body>
         <!--[if lt IE 10]>
@@ -28,6 +29,7 @@
                 <h1>Locale...</h1>
             </header>
             <section id="primary-section" role="main">
+                <div id="map-canvas"></div><!-- #map-canvas ends -->
                 <div class="display">
                     
                 </div>
@@ -55,6 +57,7 @@
         </script>
         <!-- build:js scripts/main.js -->
         <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+        <script src="scripts/googlemaps.js"></script>
         <script src="scripts/core.js"></script>
         <script src="scripts/models/locale.js"></script>
         <script src="scripts/collections/locale.js"></script>
