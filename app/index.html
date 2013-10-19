@@ -12,12 +12,13 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans">
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvF1WSjBTUnTzPCJL9fnrsRnf2WBE-BcY&sensor=false"></script>
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvF1WSjBTUnTzPCJL9fnrsRnf2WBE-BcY&sensor=false"></script>
     </head>
     <body>
         <!--[if lt IE 10]>
@@ -30,14 +31,22 @@
             </header>
             <section id="primary-section" role="main">
                 <div id="map-canvas"></div><!-- #map-canvas ends -->
-                <div class="display">
-                    
+                <div id="display">
+                    <div class="listing">
+
+                    </div>
                 </div>
             </section>
             <footer id="primary-footer" role="contentinfo">
                 <p>Locale...</p>
             </footer>
         </div><!-- #container ends -->
+        <script id="locale-template" type="text/template">
+            <div class="locale">
+                <h2><%= localeName %></h2>
+                <p><%= localeEventHours %></p>
+            </div>
+        </script>
         
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
@@ -61,6 +70,8 @@
         <script src="scripts/core.js"></script>
         <script src="scripts/models/locale.js"></script>
         <script src="scripts/collections/locale.js"></script>
+        <script src="scripts/views/locale.js"></script>
+        <script src="scripts/views/directory.js"></script>
         <!-- endbuild -->
 </body>
 </html>

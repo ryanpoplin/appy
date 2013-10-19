@@ -2,5 +2,5 @@
 define([], function () {
     'use strict';
 
-    return '\'Allo \'Allo!';
+    // return '\'Allo \'Allo!';
 });

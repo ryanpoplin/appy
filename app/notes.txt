@@ -1,0 +1,9 @@
+assert(condition, message);
+assert(a == 1, "Test failed.");
+
+start = new Date().getTime();
+for (var n = 0; n < maxCounter; n++) {
+	// Operation that will be measured...
+}
+elapsed = new Date().getTime() - start;
+assert(true, "Measure: " + elapsed);

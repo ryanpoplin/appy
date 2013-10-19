@@ -1,38 +1,70 @@
-// Bootstrapping...
+// Global bootstrapping templates...
 var App = {
+       
+    // Models template...
     Models: {},
+    // Collections template...
     Collections: {},
-    Locales: null
+    // Views template...
+    Views: {},
+    // Storage for the 'Locale' collection instance...
+    Locales: null,
+    // Ref. to the primary application 'view'...
+    Directory: null
+
 };
 
-// Just freshing up...
+// Models and Collections must have access to the 'App' object...
+$(function () {
 
-$(function(){
-
-    window.carolinaAleHouse = new App.Models.Locale({
-        localeName: "Carolina Ale House",
-        localeNumber: "864-789-8888",
-        localeAddress: "221 Main Street...",
-        localeEventHours: "6 P.M. - 8 P.M."
-    });
-
+    // Create an instance of the 'Locale' collection...
     App.Locales = new App.Collections.Locale();
 
-    App.Locales.add(window.carolinaAleHouse);
-
     App.Locales.add({
+
         localeName: "Barley's Taproom and Pizzeria",
         localeNumber: "864-789-8888",
         localeAddress: "221 Main Street...",
-        localeEventHours: "6 P.M. - 8 P.M."
+        localeEventHours: "6 P.M. - 8 P.M.",
+        localeGoogleMapsInfoWindow: function () {
+
+            barleyWindow.open(map, barleyMarker);   
+        
+        }
+    
     });
 
-    var localeListing = "";
+    App.Locales.add({
 
-    App.Locales.each(function(locale){
-        localeListing += "<div>" + locale.get('localeName') + "<br>" + locale.get('localeEventHours') + "</div>"; 
+        localeName: "Carolina Ale House",
+        localeNumber: "864-789-8888",
+        localeAddress: "221 Main Street...",
+        localeEventHours: "6 P.M. - 8 P.M.",
+        localeGoogleMapsInfoWindow: function () {
+
+            carolinaAleHouseWindow.open(map, carolinaAleHouseMarker);   
+        
+        }
+
     });
 
-    $('.display').html(localeListing);
+    // Init. the 'Directory' view...
+    App.Directory = new App.Views.Directory({
+
+        // Ref. to the DOM element for attachment...
+        el: $('#display')
+
+    });
+
+    // Invoke 'render' of each 'Locale' in the collection... 
+    App.Directory.render();
+
+    // Add 'add remove' events to the 'Locales' collection...
+    App.Locales.on('add remove', function () {
+
+        // Re-render the 'Directory' view on eiter 'add or remove' events...
+        App.Directory.render();
+
+    });
 
 });

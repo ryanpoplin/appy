@@ -1,12 +1,57 @@
 body {
+
     background-color: rgb(240, 240, 240);
+    font-family: 'Open Sans', sans-serif;
+
 }
 
 .container {
+    
     margin: 0 auto;
     width: 700px;
+
+}
+
+#primary-header {
+    
+    margin: 15px 0 15px 0;
+
+    h1 {
+        font-size: 2.5em;
+    }
+
 }
 
 #map-canvas {
+    
     height: 300px;
+
+}
+
+.locale {
+    
+    background-color: rgb(230, 230, 230);
+    cursor: pointer;    
+    height: 100px;  
+    margin-top: 15px;
+    padding: 10px 5px 10px 5px;
+
+    h2 {
+        font-size: 1.5625em;
+    }
+
+    p {
+        font-size: 1.25em;
+    }
+
+}
+
+#primary-footer {
+    
+    margin: 15px 0 15px 0;
+
+    p {
+        font-size: 1.875em;
+    }
+
 }
