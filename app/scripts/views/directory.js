@@ -13,7 +13,7 @@ App.Views.Directory = Backbone.View.extend({
 	render: function () {
 		
 		// Clear out the existing elements...
-		var $container = this.$('.listing').empty();
+		var $container = this.$('#listing').empty();
 
 		// Iterate over each 'Locale' model instance...
 		App.Locales.each(function(locale){

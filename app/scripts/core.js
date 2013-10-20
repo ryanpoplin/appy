@@ -20,6 +20,7 @@ $(function () {
     // Create an instance of the 'Locale' collection...
     App.Locales = new App.Collections.Locale();
 
+    // Instances that will be persisted to a DB on a server...
     App.Locales.add({
 
         localeName: "Barley's Taproom and Pizzeria",
@@ -28,10 +29,11 @@ $(function () {
         localeEventHours: "6 P.M. - 8 P.M.",
         localeGoogleMapsInfoWindow: function () {
 
+            carolinaAleHouseWindow.close();
             barleyWindow.open(map, barleyMarker);   
         
         }
-    
+            
     });
 
     App.Locales.add({
@@ -42,6 +44,7 @@ $(function () {
         localeEventHours: "6 P.M. - 8 P.M.",
         localeGoogleMapsInfoWindow: function () {
 
+            barleyWindow.close();
             carolinaAleHouseWindow.open(map, carolinaAleHouseMarker);   
         
         }

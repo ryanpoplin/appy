@@ -25,16 +25,14 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div class="container">
+        <div id="container">
             <header id="primary-header" role="banner">
                 <h1>Locale...</h1>
             </header>
             <section id="primary-section" role="main">
                 <div id="map-canvas"></div><!-- #map-canvas ends -->
                 <div id="display">
-                    <div class="listing">
-
-                    </div>
+                    <div id="listing"></div><!-- #listing ends -->
                 </div>
             </section>
             <footer id="primary-footer" role="contentinfo">
@@ -67,11 +65,17 @@
         <!-- build:js scripts/main.js -->
         <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
         <script src="scripts/googlemaps.js"></script>
+        <script src="scripts/timer.js"></script>
         <script src="scripts/core.js"></script>
         <script src="scripts/models/locale.js"></script>
         <script src="scripts/collections/locale.js"></script>
         <script src="scripts/views/locale.js"></script>
         <script src="scripts/views/directory.js"></script>
+        <script src="scripts/test.js"></script>
         <!-- endbuild -->
+        <script>
+            var test = "Testing...";
+            log(test);
+        </script>
 </body>
 </html>
