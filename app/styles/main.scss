@@ -56,3 +56,21 @@ body {
     }
 
 }
+
+#results {
+    
+    li.passed {
+
+        color: green;
+        padding: 5px 0 0 0;
+    
+    }
+
+    li.failed {
+
+        color: red;
+        padding: 5px 0 0 0;
+
+    }
+
+}

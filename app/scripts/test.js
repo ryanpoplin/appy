@@ -12,3 +12,17 @@ function log () {
 		}
 	}
 }
+
+function basicAssert (value, description) {
+	var li = document.createElement("li");
+	li.className = value ? "passed" : "failed";
+	li.appendChild(document.createTextNode(description));
+	document.getElementById("results").appendChild(li);
+}
+
+window.onload = function () {
+	basicAssert(jQuery() !== null || undefined, "jQuery is avaliable to the applicaiton...");
+	basicAssert(_ !== null || undefined, "Lodash is avaliable to the applicaiton...");
+	basicAssert(Backbone !== null || undefined, "Backbone is avaliable to the application...");
+};
+
