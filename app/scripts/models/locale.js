@@ -19,7 +19,8 @@ App.Models.Locale = Backbone.Model.extend({
 	initialize: function (attributes) {
 	
 		// 'localeName' will store the 'Locale' models' localeName attr. || "Empty"...
-		var localeName = attributes.localeName || "Empty";
+		// Made it 'global' for unit testing...
+		localeName = attributes.localeName || "Empty";
 	
 		// Logging...
 		console.log("Initialized a new locale model for " + localeName + ".");

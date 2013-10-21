@@ -58,22 +58,28 @@ function log () {
 		return li;
 	};
 
-	// Synchronous Testing...
 	test("John Resig && Bear Bibeault's custom sync/async javascript testing suite...", function() {
 		assert(true, "- Custom Sync/Async JS Testing Suite is ready to go...");
 	});
 
-	// Asynchronous Testing...
-	test("Async Backbone.js dependency checker...", function() {
+	test("Backbone.js dependency checker...", function() {
 		
+		assert(google !== null || undefined, "- Google Maps API is avaliable to the application...");
+		assert(jQuery() !== null || undefined, "- jQuery is avaliable to the applicaiton...");
+		assert(_ !== null || undefined, "- Lodash is avaliable to the applicaiton...");
+		assert(Backbone !== null || undefined, "- Backbone is avaliable to the application...");
+		
+	});
+
+	test("Async 'locale' model initialization...", function() {
+
 		pause();
 		setTimeout(function() {
-			assert(jQuery() !== null || undefined, "- jQuery is avaliable to the applicaiton...");
-			assert(_ !== null || undefined, "- Lodash is avaliable to the applicaiton...");
-			assert(Backbone !== null || undefined, "- Backbone is avaliable to the application...");
+			App.Locales.add({});
+			assert(localeName === "Empty", "- The test 'locale' model was initialized...");
 			resume();
 		}, 1000);
-		
+
 	});
 
 })();
