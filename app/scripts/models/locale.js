@@ -10,12 +10,14 @@ App.Models.Locale = Backbone.Model.extend({
         localeNumber: "Locale Telephone Number",
         localeAddress: "Locale Street Address",
         localeEventHours: "Locale Event Hours",
-        // localeEventRating: "Locale Event Rating",
-        // localeEventTimer: "Locale Event Timer"
-	
+        hours: "",
+        minutes: "",
+        seconds: ""
+
 	},
 
 	// Will run every time the the 'Locale' model is initialized...
+	// Pass in its attrs...
 	initialize: function (attributes) {
 	
 		// 'localeName' will store the 'Locale' models' localeName attr. || "Empty"...

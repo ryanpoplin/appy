@@ -24,24 +24,26 @@ $(function () {
     App.Locales.add({
 
         localeName: "Barley's Taproom and Pizzeria",
-        localeNumber: "864-789-8888",
-        localeAddress: "221 Main Street...",
         localeEventHours: "6 P.M. - 8 P.M.",
+        hours: "barleyHours",
+        minutes: "barleyMinutes",
+        seconds: "barleySeconds",
         localeGoogleMapsInfoWindow: function () {
 
             carolinaAleHouseWindow.close();
             barleyWindow.open(map, barleyMarker);   
         
         }
-            
+
     });
 
     App.Locales.add({
 
         localeName: "Carolina Ale House",
-        localeNumber: "864-789-8888",
-        localeAddress: "221 Main Street...",
-        localeEventHours: "6 P.M. - 8 P.M.",
+        localeEventHours: "7 P.M. - 9 P.M.",
+        hours: "carolinaHours",
+        minutes: "carolinaMinutes",
+        seconds: "carolinaSeconds",
         localeGoogleMapsInfoWindow: function () {
 
             barleyWindow.close();

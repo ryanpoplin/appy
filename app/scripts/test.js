@@ -58,11 +58,11 @@ function log () {
 		return li;
 	};
 
-	test("John Resig && Bear Bibeault's custom sync/async javascript testing suite...", function() {
-		assert(true, "- Custom Sync/Async JS Testing Suite is ready to go...");
+	test("JS Ninja sync/async javascript testing suite...", function() {
+		assert(true, "- Custom sync/async JS testing suite is ready to go...");
 	});
 
-	test("Backbone.js dependency checker...", function() {
+	test("Backbone.js && Google Maps API dependency checker...", function() {
 		
 		assert(google !== null || undefined, "- Google Maps API is avaliable to the application...");
 		assert(jQuery() !== null || undefined, "- jQuery is avaliable to the applicaiton...");
