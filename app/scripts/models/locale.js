@@ -10,6 +10,7 @@ App.Models.Locale = Backbone.Model.extend({
         localeNumber: "Locale Telephone Number",
         localeAddress: "Locale Street Address",
         localeEventHours: "Locale Event Hours",
+        days: "",
         hours: "",
         minutes: "",
         seconds: ""

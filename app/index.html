@@ -27,14 +27,11 @@
 
         <div id="container">
             <header id="primary-header" role="banner">
-                <h1>Locale...</h1>
-            </header>
-            <section id="primary-section" role="main">
                 <div id="map-canvas"></div><!-- #map-canvas ends -->
                 <div id="display">
                     <div id="listing"></div><!-- #listing ends -->
                 </div>
-            </section>
+            </header>
             <footer id="primary-footer" role="contentinfo">
                 <p>Locale...</p>
             </footer>
@@ -44,9 +41,9 @@
             <div class="locale">
                 <h2><%= localeName %></h2>
                 <p><%= localeEventHours %></p>
-                <span class=<%= hours %>>00</span>
-                <span class=<%= minutes %>>00</span>
-                <span class=<%= seconds %>>00</span>
+                <span id=<%= hours %>>00</span>
+                <span id=<%= minutes %>>00</span>
+                <span id=<%= seconds %>>00</span>
             </div>
         </script>
 
@@ -69,13 +66,19 @@
         <!-- build:js scripts/main.js -->
         <!--<script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>-->
         <script src="scripts/googlemaps.js"></script>
-        <script src="scripts/countdown.js"></script>
         <script src="scripts/core.js"></script>
         <script src="scripts/models/locale.js"></script>
         <script src="scripts/collections/locale.js"></script>
         <script src="scripts/views/locale.js"></script>
         <script src="scripts/views/directory.js"></script>
+        <script src="scripts/countdown.js"></script>
         <script src="scripts/test.js"></script>
         <!-- endbuild -->
+        <script>
+            barleyCountdown("10/22/2013 2:00:00 AM", ["barleyHours", "barleyMinutes", "barleySeconds"]);
+        </script>
+        <script>
+            carolinaCountdown('10/22/2013 3:30:00 AM', ["carolinaHours", "carolinaMinutes", "carolinaSeconds"]);
+        </script>
 </body>
 </html>

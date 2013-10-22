@@ -1,4 +1,4 @@
-var barleyCountdown = function(ending, elements) {
+function barleyCountdown(ending, elements) {
 
 	var second = 1000,
 		minute = second * 60,
@@ -34,8 +34,10 @@ var barleyCountdown = function(ending, elements) {
 				if(elements.length) {
 					for(x in elements) {
 						var x = elements[x];
+						// Formatting...
 						data[x] = ("00" + data[x]).slice(-2);
-						document.getElementsByClassName(x).innerHTML = data[x]; 
+						// 
+						document.getElementById(x).innerHTML = data[x]; 
 					}
 
 				}
@@ -48,4 +50,53 @@ var barleyCountdown = function(ending, elements) {
 
 }
 
-barleyCountdown('10/22/2013 12:00:00 AM', ["barleyHours", "barleyMinutes", "barleySeconds"]);
+function carolinaCountdown(ending, elements) {
+
+	var second = 1000,
+		minute = second * 60,
+		hour = minute * 60,
+		day = hour * 24, 
+		end = new Date(ending),
+		timer,
+		calculate = function() {
+				
+			var now = new Date(), 
+			remaining = end.getTime() - now.getTime(),
+			data;
+			
+			if(isNaN(end)) {
+				console.log("Invalid date or time...");
+				return;
+			}
+
+			if(remaining <= 0) {
+				clearInterval(timer);
+			} else {
+				if(!timer) {
+					timer = setInterval(calculate, second);
+				}
+
+				data = {
+					"carolinaDays": Math.floor(remaining / day),
+					"carolinaHours": Math.floor((remaining % day) / hour),
+					"carolinaMinutes": Math.floor((remaining % hour) / minute),
+					"carolinaSeconds": Math.floor((remaining % minute) / second)
+				};
+
+				if(elements.length) {
+					for(x in elements) {
+						var x = elements[x];
+						// Formatting...
+						data[x] = ("00" + data[x]).slice(-2);
+						document.getElementById(x).innerHTML = data[x]; 
+					}
+
+				}
+
+			}
+
+		};
+
+	calculate();
+
+}
