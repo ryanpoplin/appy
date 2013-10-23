@@ -17,6 +17,8 @@ var App = {
 // Models and Collections must have access to the 'App' object...
 $(function () {
 
+    var visible;
+
     // Create an instance of the 'Locale' collection...
     App.Locales = new App.Collections.Locale();
 
@@ -30,14 +32,20 @@ $(function () {
         seconds: "barleySeconds",
         localeGoogleMapsInfoWindow: function () {
 
-            carolinaAleHouseWindow.close();
-            barleyWindow.open(map, barleyMarker);   
-        
+            // carolinaAleHouseWindow.close();
+            if (visible === true) {
+                barleyWindow.close();
+                visible = false;
+            } else {  
+                barleyWindow.open(map, barleyMarker); 
+                visible = true;  
+            }
+
         }
 
     });
 
-    App.Locales.add({
+    /*App.Locales.add({
 
         localeName: "Carolina Ale House",
         localeEventHours: "7 P.M. - 9 P.M.",
@@ -51,7 +59,7 @@ $(function () {
         
         }
 
-    });
+    });*/
 
     // Init. the 'Directory' view...
     App.Directory = new App.Views.Directory({

@@ -1,9 +1,8 @@
 body {
 
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(220, 220, 220);
     font-family: 'Open Sans', sans-serif;
-    /*padding: 0 20px 0 20px;*/
-
+    
 }
 
 /*#container {
@@ -32,10 +31,11 @@ body {
 .locale {
     
     background-color: rgb(230, 230, 230);
+    box-shadow: 0 3px 3px #a0a0a0;
     cursor: pointer;    
     height: 100px;  
-    margin-top: 15px;
-    padding: 10px 5px 10px 5px;
+    margin: 15px 0 0 0;
+    padding: 10px 15px 10px 15px;
 
     h2 {
         font-size: 1.5625em;
@@ -47,9 +47,13 @@ body {
 
 }
 
+.locale:hover {
+    background-color: rgb(235, 235, 235);
+}
+
 #primary-footer {
     
-    margin: 15px 0 15px 0;
+    margin: 15px 15px 15px 15px;
 
     p {
         font-size: 1.875em;
@@ -58,6 +62,8 @@ body {
 }
 
 #results {
+
+    padding: 0 15px 0 15px;
     
     li.passed {
 

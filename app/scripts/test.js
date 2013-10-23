@@ -58,8 +58,8 @@ function log () {
 		return li;
 	};
 
-	test("JS Ninja sync/async javascript testing suite...", function() {
-		assert(true, "- Custom sync/async JS testing suite is ready to go...");
+	test("JS Ninja Testing Suite should be ready...", function() {
+		assert(true, "- JS Ninja Testing Suite is ready to go...");
 	});
 
 	test("Backbone.js && Google Maps API dependency checker...", function() {
@@ -71,12 +71,12 @@ function log () {
 		
 	});
 
-	test("Async 'locale' model initialization...", function() {
+	test("A Test 'locale' model should initialize...", function() {
 
 		pause();
 		setTimeout(function() {
 			App.Locales.add({});
-			assert(localeName === "Empty", "- The test 'locale' model was initialized...");
+			assert(localeName === "Empty", "- Test 'locale' model was initialized...");
 			resume();
 		}, 1000);
 

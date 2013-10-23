@@ -34,9 +34,7 @@ function barleyCountdown(ending, elements) {
 				if(elements.length) {
 					for(x in elements) {
 						var x = elements[x];
-						// Formatting...
 						data[x] = ("00" + data[x]).slice(-2);
-						// 
 						document.getElementById(x).innerHTML = data[x]; 
 					}
 
@@ -50,7 +48,7 @@ function barleyCountdown(ending, elements) {
 
 }
 
-function carolinaCountdown(ending, elements) {
+/*function carolinaCountdown(ending, elements) {
 
 	var second = 1000,
 		minute = second * 60,
@@ -86,7 +84,6 @@ function carolinaCountdown(ending, elements) {
 				if(elements.length) {
 					for(x in elements) {
 						var x = elements[x];
-						// Formatting...
 						data[x] = ("00" + data[x]).slice(-2);
 						document.getElementById(x).innerHTML = data[x]; 
 					}
@@ -99,4 +96,4 @@ function carolinaCountdown(ending, elements) {
 
 	calculate();
 
-}
+}*/
