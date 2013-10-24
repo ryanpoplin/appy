@@ -4,17 +4,17 @@ console.log('Google Maps API has been initialized.');
 // Google Maps API Code...
 
 // Create an array of styles.
-var styles = [
+var styles = [  
   {
     stylers: [
       { hue: null },
-      { saturation: 300 }
+      { saturation: 10 }
     ]
   },{
     featureType: "road",
     elementType: "geometry",
     stylers: [
-      { lightness: 500 },
+      { lightness: null },
       { visibility: "simplified" }
     ]
   },{
@@ -32,7 +32,7 @@ var styledMap = new google.maps.StyledMapType(styles,
 // Create a map object, and include the MapTypeId to add
 // to the map type control.
 var mapOptions = {
-  zoom: 14,
+  zoom: 15,
   center: new google.maps.LatLng(34.852618, -82.39401),
   mapTypeControlOptions: {
     mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
@@ -71,13 +71,14 @@ var barleyWindow = new google.maps.InfoWindow({
 
 google.maps.event.addDomListener(barleyMarker, 'click', function () {
 
-    // carolinaAleHouseWindow.close();
+    carolinaAleHouseWindow.close();
+    sharkeyWindow.close();
     barleyWindow.open(map, barleyMarker);   
 
 });
 
 // Carolina Ale House...
-/*var carolinaAleHouse = new google.maps.LatLng(34.849054, -82.399301);
+var carolinaAleHouse = new google.maps.LatLng(34.849054, -82.399301);
 
 var carolinaAleHouseMarker = new google.maps.Marker({
 
@@ -88,7 +89,7 @@ var carolinaAleHouseMarker = new google.maps.Marker({
 
 });
 
-var carolinaAleHouseInfo = '<div><p>Get your drink on at Carolina Ale House!</p></div>';
+var carolinaAleHouseInfo = '<h1 id="firstHeading" class="firstHeading">Carolina Ale House</h1>';
 
 var carolinaAleHouseWindow = new google.maps.InfoWindow({
     
@@ -99,8 +100,42 @@ var carolinaAleHouseWindow = new google.maps.InfoWindow({
 google.maps.event.addDomListener(carolinaAleHouseMarker, 'click', function () {
     
     barleyWindow.close();
+    sharkeyWindow.close();
     carolinaAleHouseWindow.open(map, carolinaAleHouseMarker);   
 
-});*/
+});
+
+// Sharkey's Pub...
+var sharkey = new google.maps.LatLng(34.851867,-82.398085);
+
+var sharkeyMarker = new google.maps.Marker({
+
+    position: sharkey,
+    map: map,
+    title: 'Sharkey\'s Pub',
+    icon: 'images/beergarden-icon.png'
+
+});
+
+var sharkeyInfo = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Sharkey\'s Pub</h1>'+
+      '</div>';
+
+
+var sharkeyWindow = new google.maps.InfoWindow({
+
+    content: sharkeyInfo
+
+});
+
+google.maps.event.addDomListener(sharkeyMarker, 'click', function () {
+
+    barleyWindow.close();
+    carolinaAleHouseWindow.close();
+    sharkeyWindow.open(map, sharkeyMarker);   
+
+});
 
 

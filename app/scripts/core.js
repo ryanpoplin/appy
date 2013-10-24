@@ -17,7 +17,9 @@ var App = {
 // Models and Collections must have access to the 'App' object...
 $(function () {
 
-    var visible;
+    var barleyVisible, 
+        carolinaVisible,    
+        sharkeyVisible;
 
     // Create an instance of the 'Locale' collection...
     App.Locales = new App.Collections.Locale();
@@ -32,20 +34,23 @@ $(function () {
         seconds: "barleySeconds",
         localeGoogleMapsInfoWindow: function () {
 
-            // carolinaAleHouseWindow.close();
-            if (visible === true) {
+            carolinaVisible = false;
+            sharkeyVisible = false;
+            if (barleyVisible === true) {
                 barleyWindow.close();
-                visible = false;
+                barleyVisible = false;
             } else {  
+                carolinaAleHouseWindow.close();
+                sharkeyWindow.close();
                 barleyWindow.open(map, barleyMarker); 
-                visible = true;  
+                barleyVisible = true;  
             }
 
         }
 
     });
 
-    /*App.Locales.add({
+    App.Locales.add({
 
         localeName: "Carolina Ale House",
         localeEventHours: "7 P.M. - 9 P.M.",
@@ -54,12 +59,46 @@ $(function () {
         seconds: "carolinaSeconds",
         localeGoogleMapsInfoWindow: function () {
 
-            barleyWindow.close();
-            carolinaAleHouseWindow.open(map, carolinaAleHouseMarker);   
+            barleyVisible = false;
+            sharkeyVisible = false;
+            if (carolinaVisible === true) {
+                carolinaAleHouseWindow.close();
+                carolinaVisible = false;
+            } else {  
+                barleyWindow.close();
+                sharkeyWindow.close();
+                carolinaAleHouseWindow.open(map, carolinaAleHouseMarker); 
+                carolinaVisible = true;  
+            }
         
         }
 
-    });*/
+    });
+
+    App.Locales.add({
+
+        localeName: "Sharkey's Pub",
+        localeEventHours: "6 P.M. - 8 P.M.",
+        hours: "sharkeyHours",
+        minutes: "sharkeyMinutes",
+        seconds: "sharkeySeconds",
+        localeGoogleMapsInfoWindow: function () {
+
+            barleyVisible = false;
+            carolinaVisible = false;
+            if (sharkeyVisible === true) {
+                sharkeyWindow.close();
+                sharkeyVisible = false;
+            } else {  
+                barleyWindow.close();
+                carolinaAleHouseWindow.close();
+                sharkeyWindow.open(map, sharkeyMarker); 
+                sharkeyVisible = true;  
+            }
+
+        }
+
+    });
 
     // Init. the 'Directory' view...
     App.Directory = new App.Views.Directory({

@@ -48,7 +48,18 @@ function barleyCountdown(ending, elements) {
 
 }
 
-/*function carolinaCountdown(ending, elements) {
+function triggerBarleyCountdown() {
+
+	barleyCountdown("10/24/2013 1:20:00 AM", ["barleyHours", "barleyMinutes", "barleySeconds"]);
+
+}
+
+var barleyTriggerTime = new Date("10/23/2013 11:56:00 PM").getTime(),
+  	timeNow = new Date().getTime(),
+  	offsetMillis = barleyTriggerTime - timeNow;
+setTimeout('triggerBarleyCountdown()', offsetMillis);
+
+function carolinaCountdown(ending, elements) {
 
 	var second = 1000,
 		minute = second * 60,
@@ -96,4 +107,15 @@ function barleyCountdown(ending, elements) {
 
 	calculate();
 
-}*/
+}
+
+function triggerCarolinaCountdown() {
+
+	carolinaCountdown("10/24/2013 12:30:00 AM", ["carolinaHours", "carolinaMinutes", "carolinaSeconds"]);
+
+}
+
+var triggerCarolinaTime = new Date("10/23/2013 11:56:00 PM").getTime(),
+  	timeNow = new Date().getTime(),
+  	offsetMillis = triggerCarolinaTime - timeNow;
+setTimeout('triggerCarolinaCountdown()', offsetMillis);
