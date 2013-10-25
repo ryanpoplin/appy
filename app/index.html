@@ -12,7 +12,7 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/reset.css">
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvF1WSjBTUnTzPCJL9fnrsRnf2WBE-BcY&sensor=false"></script>
@@ -21,19 +21,18 @@
         <!-- endbuild -->
     </head>
     <body>
+        <!--  -->
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
         <header id="primary-header" role="banner">
+            <h1>Locale...</h1>
             <div id="map-canvas"></div><!-- #map-canvas ends -->
         </header>
         <section id="display">
             <div id="listing"></div><!-- #listing ends -->
         </section>
-        <footer id="primary-footer" role="contentinfo">
-            <p>Locale...</p>
-        </footer>
         <ul id="results"></ul>
         <script id="locale-template" type="text/template">
             <div class="locale">
@@ -50,7 +49,7 @@
                     <span>s</span>
                 </div>
             </div>
-        </script>
+        </script>   
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
@@ -70,14 +69,14 @@
         </script>-->
         <!-- build:js scripts/main.js -->
         <!--<script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>-->
-        <script src="scripts/googlemaps.js"></script>
         <script src="scripts/core.js"></script>
+        <script src="scripts/googlemaps.js"></script>
+        <script src="scripts/utils.js"></script>
         <script src="scripts/models/locale.js"></script>
         <script src="scripts/collections/locale.js"></script>
         <script src="scripts/views/locale.js"></script>
         <script src="scripts/views/directory.js"></script>
-        <script src="scripts/countdown.js"></script>
-        <script src="scripts/test.js"></script>
+        <!--<script src="scripts/test.js"></script>-->
         <!-- endbuild -->
 
         <!--<script>

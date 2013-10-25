@@ -8,16 +8,26 @@ body {
 #primary-header {
         
         position: fixed;
+        background-color: #25C7EE;
         left:0px;
         top:0px;
         width:100%;
         box-shadow: 0 3px 3px #d7d7d7;
+
+    h1 {
+        color: #fefefe;
+        padding: 5px 0 0 15px;
+        font-size: 2em;
+        font-weight: 100;
+    }
 
     #map-canvas {
 
         h1 {
             font-size: 1.825em;
         }
+
+        margin-top: 7px;
 
         height: 350px;
         
@@ -27,34 +37,35 @@ body {
 
 #display {
 
-    margin-top: 365px;
+    margin-top: 395px;
 
 }
 
 .locale {
     
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    box-shadow: 0 3px 3px #d1d1d1;
+    border-top: 1px solid #D1CBCD;
+    background-color: #F6F7FB;
     cursor: pointer;    
     height: 100px;  
-    margin: 15px 20px 0 20px;
     padding: 10px 15px 10px 15px;
 
     h2 {
-        color: #606060;
+        color: #ef8925;
         font-size: 2.5em;
+        font-weight: 100;
     }
 
     p {
         padding: 5px 0 5px 0;
-        color: red;
+        color: #EF8925;
         font-size: 1.5em;
+        font-weight: 100;
     }
 
     span {
         color: #606060;
         font-size: 1.5625em;
+        font-weight: 100;
     }
 
     span.appy {
@@ -86,7 +97,6 @@ body {
 
         p {
             padding: 5px 0 5px 0;
-            color: red;
             font-size: 1.5625em;
         }
 
@@ -114,7 +124,6 @@ body {
 
         p {
             padding: 5px 0 5px 0;
-            color: red;
             font-size: 1.5625em;
         }
 
@@ -136,7 +145,6 @@ body {
     @media (max-width: 560px) {
 
         border-radius: 0px;
-        margin: 15px 0 0 0;
 
         h2 {
             color: #606060;
@@ -145,7 +153,6 @@ body {
 
         p {
             padding: 5px 0 5px 0;
-            color: red;
             font-size: 1.5625em;
         }
 
@@ -172,19 +179,9 @@ body {
 
 }
 
-.locale:hover, :focus {
-    background-color: #e8e8e8;
-}
-
-#primary-footer {
-    
-    margin: 15px 15px 15px 15px;
-
-    p {
-        font-size: 1.875em;
-    }
-
-}
+/*.locale:hover {
+    background-color: #549376;
+}*/
 
 #results {
 

@@ -11,94 +11,21 @@ var App = {
     Locales: null,
     // Ref. to the primary application 'view'...
     Directory: null
-
+    
 };
 
 // Models and Collections must have access to the 'App' object...
 $(function () {
 
-    var barleyVisible, 
+    /*var barleyVisible, 
         carolinaVisible,    
-        sharkeyVisible;
+        sharkeyVisible;*/
 
     // Create an instance of the 'Locale' collection...
     App.Locales = new App.Collections.Locale();
 
     // Instances that will be persisted to a DB on a server...
-    App.Locales.add({
-
-        localeName: "Barley's Taproom and Pizzeria",
-        localeEventHours: "6 P.M. - 8 P.M.",
-        hours: "barleyHours",
-        minutes: "barleyMinutes",
-        seconds: "barleySeconds",
-        localeGoogleMapsInfoWindow: function () {
-
-            carolinaVisible = false;
-            sharkeyVisible = false;
-            if (barleyVisible === true) {
-                barleyWindow.close();
-                barleyVisible = false;
-            } else {  
-                carolinaAleHouseWindow.close();
-                sharkeyWindow.close();
-                barleyWindow.open(map, barleyMarker); 
-                barleyVisible = true;  
-            }
-
-        }
-
-    });
-
-    App.Locales.add({
-
-        localeName: "Carolina Ale House",
-        localeEventHours: "7 P.M. - 9 P.M.",
-        hours: "carolinaHours",
-        minutes: "carolinaMinutes",
-        seconds: "carolinaSeconds",
-        localeGoogleMapsInfoWindow: function () {
-
-            barleyVisible = false;
-            sharkeyVisible = false;
-            if (carolinaVisible === true) {
-                carolinaAleHouseWindow.close();
-                carolinaVisible = false;
-            } else {  
-                barleyWindow.close();
-                sharkeyWindow.close();
-                carolinaAleHouseWindow.open(map, carolinaAleHouseMarker); 
-                carolinaVisible = true;  
-            }
-        
-        }
-
-    });
-
-    App.Locales.add({
-
-        localeName: "Sharkey's Pub",
-        localeEventHours: "6 P.M. - 8 P.M.",
-        hours: "sharkeyHours",
-        minutes: "sharkeyMinutes",
-        seconds: "sharkeySeconds",
-        localeGoogleMapsInfoWindow: function () {
-
-            barleyVisible = false;
-            carolinaVisible = false;
-            if (sharkeyVisible === true) {
-                sharkeyWindow.close();
-                sharkeyVisible = false;
-            } else {  
-                barleyWindow.close();
-                carolinaAleHouseWindow.close();
-                sharkeyWindow.open(map, sharkeyMarker); 
-                sharkeyVisible = true;  
-            }
-
-        }
-
-    });
+    App.Locales.add(localeData);
 
     // Init. the 'Directory' view...
     App.Directory = new App.Views.Directory({

@@ -12,14 +12,32 @@ App.Views.Locale = Backbone.View.extend({
 	initialize: function (extras) {
 
 		// Rebind 'this' to refer to the entire 'Locale' view object...
-		_.bindAll(this, 'render', 'insert');
+		_.bindAll(this, 'render', 'insert', 'openInfoWindow');
 		
 		// A ref. to the container the 'view' is placed into...
 		this.$container = extras.$container;
 
 		// When the 'Locale' model is updated, invoke the 'render' method...
 		this.listenTo(this.model, 'change', this.render);
-		
+
+		var lat = this.model.get("lat"),
+			lng = this.model.get("lng"),
+			map = this.model.get("map"),
+			info = this.model.get("info"),
+			title = this.model.get("title"),
+			icon = this.model.get("icon");
+		App.Map(lat, lng, map, info, title, icon);
+
+		var triggerTime = new Date(this.model.get("triggerTime")).getTime();
+
+		console.log(triggerTime);
+
+		var timeNow = new Date().getTime();
+
+  		var offsetMillis = triggerTime - timeNow;	
+
+		setTimeout(trigger(this.model.get("countdownTime")), offsetMillis);
+
 		// Insert the element into the container... 
 		this.insert();
 	
@@ -29,7 +47,7 @@ App.Views.Locale = Backbone.View.extend({
 	events: {
 
 		// When the element is 'clicked', run the 'method'...
-		'click' : 'googleMapsInfoWindow'
+		'click .locale' : 'openInfoWindow'
 
 	},
 
@@ -55,14 +73,9 @@ App.Views.Locale = Backbone.View.extend({
 	},
 
 	// An event-driven method...
-	googleMapsInfoWindow: function () {
-			
-			// Grab the 'method' from the 'Locale' model instance...
-			// Store it in a variable...
-			var googleMapsInfoWindow = this.model.get('localeGoogleMapsInfoWindow');
+	openInfoWindow: function () {
 		
-			// Invoke the method 'localeGoogleMapsInfoWindow' in the 'Locale' model instance...
-			googleMapsInfoWindow();
+		console.log('asdfjkl;');
 		
 	}
 

@@ -5,13 +5,10 @@ App.Models.Locale = Backbone.Model.extend({
 	defaults: {
 		
 		// The attributes...
-		localeImage: "Locale Image",
 		localeName: "Locale Name",
-        localeNumber: "Locale Telephone Number",
-        localeAddress: "Locale Street Address",
         localeEventHours: "Locale Event Hours",
         days: "",
-        hours: "",
+        hours: "",	
         minutes: "",
         seconds: ""
 

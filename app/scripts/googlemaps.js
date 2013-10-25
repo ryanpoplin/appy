@@ -1,30 +1,12 @@
-// Logging...
-console.log('Google Maps API has been initialized.');
-
-// Google Maps API Code...
-
-// Create an array of styles.
 var styles = [  
   {
-    stylers: [
-      { hue: null },
-      { saturation: 10 }
-    ]
-  },{
-    featureType: "road",
-    elementType: "geometry",
-    stylers: [
-      { lightness: null },
-      { visibility: "simplified" }
-    ]
-  },{
-    featureType: "road",
-    elementType: "labels",
-    stylers: [
-      { visibility: "on" }
+    "featureType": "landscape",
+    "stylers": [
+      { "color": "#D5D4CF" }
     ]
   }
 ];
+
 // Create a new StyledMapType object, passing it the array of styles,
 // as well as the name to be displayed on the map type control.
 var styledMap = new google.maps.StyledMapType(styles,
@@ -44,98 +26,44 @@ var map = new google.maps.Map(document.getElementById('map-canvas'),
 map.mapTypes.set('map_style', styledMap);
 map.setMapTypeId('map_style');
 
-// Barley's Taproom and Pizzeria...
-var barley = new google.maps.LatLng(34.850925, -82.399889);
+App.Map = function(lat, lng, map, info, title, icon) {
 
-var barleyMarker = new google.maps.Marker({
+  var localeLocation = new google.maps.LatLng(lat, lng),
 
-    position: barley,
+
+  localeMarker = new google.maps.Marker({
+
+    position: localeLocation,
     map: map,
-    title: 'Barley\'s Taproom and Pizzeria',
-    icon: 'images/beergarden-icon.png'
+    title: title,
+    icon: icon
 
-});
+  }),
 
-var barleyInfo = '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">Barley\'s Taproom and Pizzeria</h1>'+
-      '</div>';
+  localeInfo = info,
 
+  localeWindow = new google.maps.InfoWindow({
 
-var barleyWindow = new google.maps.InfoWindow({
+    content: localeInfo
 
-    content: barleyInfo
+  });
 
-});
+  // Refactor...
+  // Add for .locale elements...  
+  var visibleWithIcon = false;
 
-google.maps.event.addDomListener(barleyMarker, 'click', function () {
+  google.maps.event.addDomListener(localeMarker, 'click', function () {
 
-    carolinaAleHouseWindow.close();
-    sharkeyWindow.close();
-    barleyWindow.open(map, barleyMarker);   
+    if (visibleWithIcon === false) {
+      localeWindow.open(map, localeMarker);
+      visibleWithIcon = true;
+    } else {
+      if (visibleWithIcon === true) {
+        localeWindow.close();
+        visibleWithIcon = false;
+      }
+    }
 
-});
+  });
 
-// Carolina Ale House...
-var carolinaAleHouse = new google.maps.LatLng(34.849054, -82.399301);
-
-var carolinaAleHouseMarker = new google.maps.Marker({
-
-    position: carolinaAleHouse,
-    map: map,
-    title: 'Carolina Ale House',
-    icon: 'images/beergarden-icon.png'
-
-});
-
-var carolinaAleHouseInfo = '<h1 id="firstHeading" class="firstHeading">Carolina Ale House</h1>';
-
-var carolinaAleHouseWindow = new google.maps.InfoWindow({
-    
-    content: carolinaAleHouseInfo
-
-});
-
-google.maps.event.addDomListener(carolinaAleHouseMarker, 'click', function () {
-    
-    barleyWindow.close();
-    sharkeyWindow.close();
-    carolinaAleHouseWindow.open(map, carolinaAleHouseMarker);   
-
-});
-
-// Sharkey's Pub...
-var sharkey = new google.maps.LatLng(34.851867,-82.398085);
-
-var sharkeyMarker = new google.maps.Marker({
-
-    position: sharkey,
-    map: map,
-    title: 'Sharkey\'s Pub',
-    icon: 'images/beergarden-icon.png'
-
-});
-
-var sharkeyInfo = '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">Sharkey\'s Pub</h1>'+
-      '</div>';
-
-
-var sharkeyWindow = new google.maps.InfoWindow({
-
-    content: sharkeyInfo
-
-});
-
-google.maps.event.addDomListener(sharkeyMarker, 'click', function () {
-
-    barleyWindow.close();
-    carolinaAleHouseWindow.close();
-    sharkeyWindow.open(map, sharkeyMarker);   
-
-});
-
-
+}
