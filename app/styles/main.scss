@@ -8,15 +8,15 @@ body {
 #primary-header {
         
         position: fixed;
-        background-color: #25C7EE;
+        background-color: #FEFEFE;
         left:0px;
         top:0px;
         width:100%;
         box-shadow: 0 3px 3px #d7d7d7;
 
     h1 {
-        color: #fefefe;
-        padding: 5px 0 0 15px;
+        color: #ef8925;
+        padding: 5px 0 0 75px;
         font-size: 2em;
         font-weight: 100;
     }
@@ -26,6 +26,8 @@ body {
         h1 {
             font-size: 1.825em;
         }
+
+        border-top: 1px solid #F6F7FB;
 
         margin-top: 7px;
 
@@ -47,17 +49,18 @@ body {
     background-color: #F6F7FB;
     cursor: pointer;    
     height: 100px;  
-    padding: 10px 15px 10px 15px;
+    padding: 10px 75px 10px 75px;
 
     h2 {
+        padding-top: 10px;
         color: #ef8925;
         font-size: 2.5em;
         font-weight: 100;
     }
 
     p {
-        padding: 5px 0 5px 0;
-        color: #EF8925;
+        padding: 10px 0 5px 0;
+        color: red;
         font-size: 1.5em;
         font-weight: 100;
     }
@@ -82,6 +85,7 @@ body {
 
     .locale-countdown {
 
+        padding-top: 10px;
         float: right;
         display: inline-block;
         vertical-align: top;
@@ -179,9 +183,9 @@ body {
 
 }
 
-/*.locale:hover {
-    background-color: #549376;
-}*/
+.locale:hover {
+    background-color: #F6F7FB;
+}
 
 #results {
 

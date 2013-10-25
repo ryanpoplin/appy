@@ -50,4 +50,19 @@ var localeData = [{
     countdownTime: "10/25/2013 4:30:00 PM",
     endMessage: "Tapped..."
 
+},
+{
+
+	localeName: "The Cazbah",
+    localeEventHours: "6 P.M. - 8 P.M.",
+    lat: 34.84994, 
+    lng: -82.400044,
+    map: map,
+    info: "The Cazbah",
+    title: "The Cazbah",
+    icon: "images/beergarden-icon.png",
+    triggerTime: "10/25/2013 1:00:00 PM",
+    countdownTime: "10/25/2013 4:30:00 PM",
+    endMessage: "Tapped..."
+
 }];
