@@ -5,22 +5,22 @@ var styles = [
       { "color": "#D5D4CF" }
     ]
   }
-];
+],
 
 // Create a new StyledMapType object, passing it the array of styles,
 // as well as the name to be displayed on the map type control.
-var styledMap = new google.maps.StyledMapType(styles,
-  {name: "Styled Map"});
+styledMap = new google.maps.StyledMapType(styles,
+  {name: "Styled Map"}),
 // Create a map object, and include the MapTypeId to add
 // to the map type control.
-var mapOptions = {
+mapOptions = {
   zoom: 15,
   center: new google.maps.LatLng(34.852618, -82.39401),
   mapTypeControlOptions: {
     mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
   }
-};
-var map = new google.maps.Map(document.getElementById('map-canvas'),
+},
+map = new google.maps.Map(document.getElementById('map-canvas'),
   mapOptions);
 //Associate the styled map with the MapTypeId and set it to display.
 map.mapTypes.set('map_style', styledMap);
@@ -46,11 +46,11 @@ App.Map = function(lat, lng, map, info, title, icon) {
 
     content: localeInfo
 
-  });
+  }),
 
   // Refactor...
   // Add for .locale elements...  
-  var visibleWithIcon = false;
+  visibleWithIcon = false;
 
   google.maps.event.addDomListener(localeMarker, 'click', function () {
 

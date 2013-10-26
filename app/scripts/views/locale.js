@@ -28,19 +28,18 @@ App.Views.Locale = Backbone.View.extend({
 			icon = this.model.get("icon");
 		App.Map(lat, lng, map, info, title, icon);
 
-		var triggerTime = new Date(this.model.get("triggerTime")).getTime();
-
-		console.log(triggerTime);
-
-		var timeNow = new Date().getTime();
-
-  		var offsetMillis = triggerTime - timeNow;	
-
-		setTimeout(trigger(this.model.get("countdownTime")), offsetMillis);
+		var triggerTime = new Date(this.model.get("triggerTime")).getTime(),
+		    timeNow = new Date().getTime(),
+  		    offsetMillis = triggerTime - timeNow,	
+  		    countdownTime = this.model.get("countdownTime"),
+  		    elements = ["hours", "minutes", "seconds"];
+  		    setTimeout(function() {
+  		    	trigger(countdownTime, elements);
+  		    }, offsetMillis);
 
 		// Insert the element into the container... 
 		this.insert();
-	
+			
 	},
 
 	// Events for each instance...

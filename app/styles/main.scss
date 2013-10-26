@@ -48,8 +48,7 @@ body {
     border-top: 1px solid #D1CBCD;
     background-color: #F6F7FB;
     cursor: pointer;    
-    height: 100px;  
-    padding: 10px 75px 10px 75px;
+    padding: 10px 75px 20px 75px;
 
     h2 {
         padding-top: 10px;
@@ -72,7 +71,6 @@ body {
     }
 
     span.appy {
-
         font-size: 1em;
         vertical-align: top;
     }
@@ -95,8 +93,8 @@ body {
     @media (max-width: 1000px) {
 
         h2 {
-            color: #606060;
-            font-size: 1.5625em;
+            color: #ef8925;
+            font-size: 1.875em;
         }
 
         p {
@@ -105,8 +103,7 @@ body {
         }
 
         span {
-            color: #606060;
-            font-size: 1.5625em;
+                font-size: 1.5625em;
         }
 
         .locale-countdown {
@@ -119,7 +116,7 @@ body {
 
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 600px) {
 
         h2 {
             color: #606060;
@@ -136,33 +133,10 @@ body {
             font-size: 1em;
         }
 
-        .locale-countdown {
+        .locale {
 
-            float: right;
-            display: inline-block;
-            vertical-align: top;
+            padding: 0;
 
-        }        
-
-    }
-
-    @media (max-width: 560px) {
-
-        border-radius: 0px;
-
-        h2 {
-            color: #606060;
-            font-size: 1.5625em;
-        }
-
-        p {
-            padding: 5px 0 5px 0;
-            font-size: 1.5625em;
-        }
-
-        span {
-            color: #606060;
-            font-size: 1em;
         }
 
          .locale-info {
@@ -173,7 +147,6 @@ body {
 
         .locale-countdown {
 
-            padding-top: 10px;
             float: left;
             display: block;
 
