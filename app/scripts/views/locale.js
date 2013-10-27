@@ -28,11 +28,15 @@ App.Views.Locale = Backbone.View.extend({
 			icon = this.model.get("icon");
 		App.Map(lat, lng, map, info, title, icon);
 
+		var hours = this.model.get("hours"),
+			minutes = this.model.get("minutes"),
+			seconds = this.model.get("seconds");
+
 		var triggerTime = new Date(this.model.get("triggerTime")).getTime(),
 		    timeNow = new Date().getTime(),
   		    offsetMillis = triggerTime - timeNow,	
   		    countdownTime = this.model.get("countdownTime"),
-  		    elements = ["hours", "minutes", "seconds"];
+  		    elements = [hours, minutes, seconds];
   		    setTimeout(function() {
   		    	trigger(countdownTime, elements);
   		    }, offsetMillis);

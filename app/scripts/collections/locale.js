@@ -16,8 +16,11 @@ var localeData = [{
     info: "Barley's Taproom and Pizzeria",
     title: "Barley's Taproom and Pizzeria",
     icon: "images/beergarden-icon.png",
-    triggerTime: "10/26/2013 2:20:00 PM",
-    countdownTime: "10/26/2013 3:00:00 PM",
+    hours: "barley-hours",
+    minutes: "barley-minutes",
+    seconds: "barley-seconds",
+    triggerTime: "10/27/2013 1:54:00 PM",
+    countdownTime: "10/27/2013 3:56:00 PM",
     endMessage: "Tapped..."
 
 },
@@ -31,8 +34,11 @@ var localeData = [{
     info: "Carolina Ale House",
     title: "Carolina Ale House",
     icon: "images/beergarden-icon.png",
-    triggerTime: "10/26/2013 2:20:00 PM",
-    countdownTime: "10/26/2013 4:00:00 PM",
+    hours: "carolina-hours",
+    minutes: "carolina-minutes",
+    seconds: "carolina-seconds",
+    triggerTime: "10/27/2013 1:54:00 PM",
+    countdownTime: "10/27/2013 2:55:00 PM",
     endMessage: "Tapped..."
 
 },
@@ -46,8 +52,11 @@ var localeData = [{
     info: "Sharkey's Pub",
     title: "Carolina Ale House",
     icon: "images/beergarden-icon.png",
-    triggerTime: "10/26/2013 2:20:00 PM",
-    countdownTime: "10/26/2013 5:00:00 PM",
+    hours: "sharkey-hours",
+    minutes: "sharkey-minutes",
+    seconds: "sharkey-seconds",
+    triggerTime: "10/27/2013 1:54:00 PM",
+    countdownTime: "10/27/2013 5:55:00 PM",
     endMessage: "Tapped..."
 
 },
@@ -61,8 +70,11 @@ var localeData = [{
     info: "The Cazbah",
     title: "The Cazbah",
     icon: "images/beergarden-icon.png",
-    triggerTime: "10/26/2013 2:20:00 PM",
-    countdownTime: "10/26/2013 6:00:00 PM",
+    hours: "cazbah-hours",
+    minutes: "cazbah-minutes",
+    seconds: "cazbah-seconds",
+    triggerTime: "10/27/2013 1:54:00 PM",
+    countdownTime: "10/27/2013 9:55:00 PM",
     endMessage: "Tapped..."
 
 }];

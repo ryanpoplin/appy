@@ -22,7 +22,7 @@ function countdown(countdownTime, elements) {
 			// Subtract the current date && end date by their unary timestamps...
 			remaining = end.getTime() - now.getTime(),
 			// Declare a variable for the 'data' object... 
-			data;
+			data = {};
 			
 			// Check for a valid date...
 			if(isNaN(end)) {
@@ -38,28 +38,29 @@ function countdown(countdownTime, elements) {
 				console.log('Tapped...');
 			} else {
 				// Check if the 'timer' has been set...
-				if(!timer) {
+				if(!timer) { 
 					// Set the 'timer' 
 					timer = setInterval(calculate, second);
 				}
 
-				data = {
-					hours: Math.floor((remaining % day) / hour),
-					minutes: Math.floor((remaining % hour) / minute),
-					seconds: Math.floor((remaining % minute) / second)
-				};
+				var hours = elements[0],
+					minutes = elements[1],
+					seconds = elements[2];
 
-				console.log(data.hours, data.minutes, data.seconds);
+				data[hours] = Math.floor((remaining % day) / hour);
+				data[minutes] = Math.floor((remaining % hour) / minute);
+				data[seconds] = Math.floor((remaining % minute) / second);				
 				
-				// Elements must be able to be set by innerHTML...
-				/*if(elements.length) {
+				if(elements.length) {
 					var x;
-					for(x in elements) {
-						x = data[x];
+					// Loop through each element... 
+					for(var i in elements) {
+						x = elements[i];
 						data[x] = ("00" + data[x]).slice(-2);
 						document.getElementById(x).innerHTML = data[x]; 
 					}
-				}*/
+
+				}
 
 			}
 
