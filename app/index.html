@@ -7,38 +7,35 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>appy</title>
-        <!--<meta name="description" content="">-->
         <meta name="viewport" content="width=device-width">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/reset.css">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvF1WSjBTUnTzPCJL9fnrsRnf2WBE-BcY&sensor=false"></script>
+        <!--key=AIzaSyDvF1WSjBTUnTzPCJL9fnrsRnf2WBE-BcY-->
         <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
     </head>
     <body>
-        <!--  -->
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
         <header id="primary-header" role="banner">
             <h1>{ LocaleCountdown }</h1>
-            <div id="map-canvas"></div><!-- #map-canvas ends -->
+            <div id="map-canvas"></div>
         </header>
-        <section id="display">
-            <div id="listing"></div><!-- #listing ends -->
+        <section id="display" role="main">
+            <div id="listing"></div>
         </section>
-        <ul id="results"></ul>
+        <!--<ul id="results"></ul>-->
         <script id="locale-template" type="text/template">
             <div class="locale">
                 <div class="locale-info">
                     <h2><%= localeName %></h2>
-                    <p><span class="appy">Happy Hours: </span><%= localeEventHours %></p>
+                    <p>Happy Hours: <%= localeEventHours %></p>
                 </div>
                 <div class="locale-countdown">
                     <span id=<%= hours %>>02</span>
@@ -48,9 +45,11 @@
                     <span id=<%= seconds %>>00</span>
                     <span>s</span>
                 </div>
+                <div class="locale-message">
+                    <span><%= endMessage %></span>
+                </div>
             </div>
         </script>   
-
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.min.js"></script>
@@ -58,29 +57,18 @@
         <script src="bower_components/backbone/backbone-min.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <!--<script>
+        <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>-->
+        </script>
         <!-- build:js scripts/main.js -->
         <!--<script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>-->
         <script src="scripts/core.js"></script>
-        <script src="scripts/googlemaps.js"></script>
-        <script src="scripts/utils.js"></script>
-        <script src="scripts/models/locale.js"></script>
-        <script src="scripts/collections/locale.js"></script>
-        <script src="scripts/views/locale.js"></script>
-        <script src="scripts/views/directory.js"></script>
         <!--<script src="scripts/test.js"></script>-->
         <!-- endbuild -->
-
-        <!--<script>
-            carolinaCountdown('10/22/2013 12:00:00 AM', ["carolinaHours", "carolinaMinutes", "carolinaSeconds"]);
-        </script>-->
 </body>
 </html>

@@ -1,6 +1,3 @@
-// Me understanding more about how custom Sync/Async JS Testing Suites work... 
-// Thanks John Resig && Bear Bibeault for the laymen's terms...
-
 function log () {
 	try {
 		console.log.apply(console, arguments);
@@ -59,7 +56,9 @@ function log () {
 	};
 
 	test("JS Ninja Testing Suite should be ready...", function() {
+	
 		assert(true, "- JS Ninja Testing Suite is ready to go...");
+	
 	});
 
 	test("Backbone.js && Google Maps API dependency checker...", function() {
@@ -71,12 +70,12 @@ function log () {
 		
 	});
 
-	test("A Test 'locale' model should initialize...", function() {
+	test("A test 'locale' model should initialize...", function() {
 
 		pause();
 		setTimeout(function() {
 			App.Locales.add({});
-			assert(localeName === "Empty", "- Test 'locale' model was initialized...");
+			assert(true, "- Test 'locale' model was initialized...");
 			resume();
 		}, 1000);
 
