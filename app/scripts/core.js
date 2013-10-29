@@ -20,7 +20,7 @@ $(function () {
 
 var mapOptions = {
     zoom: 16,
-    center: new google.maps.LatLng(34.851118, -82.39801),
+    center: new google.maps.LatLng(34.850618, -82.39801),
     mapTypeControlOptions: {
         mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
     }
@@ -45,8 +45,8 @@ var localeData = [{
     hours: "bh",
     minutes: "bm",
     seconds: "bs",
-    triggerTime: "10/29/2013 12:54:00 AM",
-    countdownTime: "10/29/2013 1:00:00 AM",
+    triggerTime: "1:00:00 PM",
+    countdownTime: "3:00:00 PM",
     endMessage: "Tapped..."
 },
 {
@@ -61,8 +61,8 @@ var localeData = [{
     hours: "ch",
     minutes: "cm",
     seconds: "cs",
-    triggerTime: "10/29/2013 12:55:00 AM",
-    countdownTime: "10/29/2013 1:30:00 AM",
+    triggerTime: "2:00:00 PM",
+    countdownTime: "4:00:00 PM",
     endMessage: "Tapped..."
 },
 {
@@ -77,8 +77,8 @@ var localeData = [{
     hours: "sh",
     minutes: "sm",
     seconds: "ss",
-    triggerTime: "10/29/2013 12:58:30 AM",
-    countdownTime: "10/29/2013 1:00:00 AM",
+    triggerTime: "1:43:00 PM",
+    countdownTime: "7:00:00 PM",
     endMessage: "Tapped..."
 },
 {
@@ -93,8 +93,8 @@ var localeData = [{
     hours: "cazbah-hours",
     minutes: "cazbah-minutes",
     seconds: "cazbah-seconds",
-    triggerTime: "10/27/2013 7:00:00 PM",
-    countdownTime: "10/27/2013 7:50:00 PM",
+    triggerTime: "11:15:00 AM",
+    countdownTime: "4:00:00 PM",
     endMessage: "Tapped..."
 }];
 
@@ -119,18 +119,25 @@ App.Views.Locale = Backbone.View.extend({
         
         var hours = this.model.get("hours"),
             minutes = this.model.get("minutes"),
-            seconds = this.model.get("seconds");
-        
-        var triggerTime = new Date(this.model.get("triggerTime")).getTime(),
+            seconds = this.model.get("seconds"),
+            currDate = new Date().toLocaleDateString(),
+            newTrigger = this.model.get("triggerTime"),
+            newCountdown = this.model.get("countdownTime"),
+            fullTrigger = currDate + " " + newTrigger,
+            fullCountdown = currDate + " " + newCountdown;
+
+        var triggerTime = new Date(fullTrigger).getTime(),
             timeNow = new Date().getTime(),
             offsetMillis = triggerTime - timeNow,        
-            countdownTime = this.model.get("countdownTime"),
-            elements = [hours, minutes, seconds];
-        
+            countdownTime = fullCountdown,
+            elements = [hours, minutes];
+
         setTimeout(function() {
             trigger(countdownTime, elements);
         }, offsetMillis);
+        
         this.insert();              
+    
     },
     
     events: {  
@@ -147,14 +154,14 @@ App.Views.Locale = Backbone.View.extend({
     },
     
     openInfoWindow: function () {          
-        console.log('asdfjkl;');           
+        // console.log('asdfjkl;');           
     }
 });
 
 App.Views.Directory = Backbone.View.extend({
     
     initialize: function () {
-         _.bindAll(this, 'render');        
+        _.bindAll(this, 'render');        
     },
     
     render: function () {     
@@ -166,6 +173,7 @@ App.Views.Directory = Backbone.View.extend({
             }).render();    
         });
     }
+
 });
 
 function mapper(lat, lng, map, info, title, icon) {
@@ -219,11 +227,9 @@ function countdown(countdownTime, elements) {
                     timer = setInterval(calculate, second);
                 }
                 var hours = elements[0],
-                    minutes = elements[1],
-                    seconds = elements[2];
+                    minutes = elements[1];
                 data[hours] = Math.floor((remaining % day) / hour);
                 data[minutes] = Math.floor((remaining % hour) / minute);
-                data[seconds] = Math.floor((remaining % minute) / second);              
                 if(elements.length) {
                     var i, x;
                     for(i in elements) {
@@ -237,6 +243,6 @@ function countdown(countdownTime, elements) {
     calculate();
 }
 
-function trigger(countdownTime, elements, render) {
+function trigger(countdownTime, elements) {
     countdown(countdownTime, elements); 
 }
