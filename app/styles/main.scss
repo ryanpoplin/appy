@@ -11,41 +11,47 @@ body {
     top:0;
     width:100%;
     h1 {
-        color: #ef8925;
+        color: #49AEC0;
         font-size: 1.5625em;
         font-weight: 100;
-        padding: 5px 0 2px 75px;
+        padding: 5px 0 9px 75px;
     }
     #map-canvas {
-        margin-top: 7px;
-        height: 350px;      
+        border-top: 1px solid #cccccc;
+        height: 310px;      
+    }
+    @media (max-width: 830px) {
+        h1 {
+            padding: 5px 0 9px 0;
+            text-align: center;
+        }
     }
 }
 
 #display {
-    margin-top: 390px;
+    margin-top: 348px;
 }
 
 .locale {
-    border-top: 1px solid #d1cbcd;
-    background-color: #f6f7fb;
+    border-top: 1px solid #cccccc;
+    background-color: #e8e8e8;
     cursor: pointer;    
     padding: 10px 75px 10px 75px;
     h2 {
-        padding: 5px 0 10px 0;
-        color: #ef8925;
+        padding: 10px 0 5px 0;
+        color: #49AEC0;
         font-size: 2.5em;
         font-weight: 100;
     }
     p {
-        padding: 10px 0 10px 0;
-        color: #ef8925;
+        padding: 5px 0 10px 0;
+        color: #606060;
         font-size: 1.5625em;
         font-weight: 100;
     }
     span {
-        color: #606060;
-        font-size: 1.5625em;
+        color: #DD577A;
+        font-size: 2.1625em;
         font-weight: 100;
     }
     .locale-info {
@@ -54,10 +60,10 @@ body {
     .locale-countdown {
         display: inline-block;
         float: right;
-        padding-top: 10px;
+        padding-top: 5px;
         vertical-align: top;
     }
-    @media (max-width: 1000px) {
+    @media (max-width: 1100px) {
         h2 {
             font-size: 1.875em;
         }
@@ -69,39 +75,39 @@ body {
             font-size: 1.5625em;
         }
     }
-    /*@media (max-width: 760px) {
+    @media (max-width: 830px) {
+        height: auto;
         h2 {
-            font-size: 1.25em;
+            padding: 5px 0 5px 0;
+            font-size: 1.875em;
+            text-align: center;
         }
         p {
             padding: 5px 0 5px 0;
-            font-size: 1.25em;
+            font-size: 1.5625em;
+            text-align: center;
         }
         span {
-            font-size: 1.25em;
-            padding-bottom: 20px; 
+            text-align: center;
+            font-size: 1.5625em;
         }
-        .locale {
-            padding: 0;
-        }
-        .locale-info {
+        .locale-info {        
             display: block;
         }
         .locale-countdown {
-            display:hidden;
-            float: left;
+            text-align: center;
+            float: none;
             display: block;
-            margin: 20px 0 20px 0;
         }
-    }*/
+    }
 }
 
 .locale:hover {
-    background-color: #f0f3fb;
+    background-color: #e1e1e1;
 }
 
 /*.locale-selected {
-    background-color: #f0f3fb;
+    background-color: #f0f0f0;
 }*/  
 
 #results {

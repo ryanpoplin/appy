@@ -18,14 +18,37 @@ $(function () {
     });
 });   
 
-var mapOptions = {
+var styles = [
+    
+    {  
+        featureType: 'water',  
+        elementType: 'geometry.fill',  
+        stylers: [  
+            { color: '#adc9b8' }  
+        ]  
+    },
+    {  
+        featureType: 'landscape',  
+        elementType: 'all',  
+        stylers: [  
+            { hue: '#ffffff' },  
+            { lightness: 80 }  
+        ]  
+    }
+
+],
+mapOptions = {
     zoom: 16,
+    disableDefaultUI: true,
     center: new google.maps.LatLng(34.850618, -82.39801),
     mapTypeControlOptions: {
-        mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-    }
+        mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map-style']
+    },
+    mapTypeId: 'map-style'
 },
-map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions),
+styledMapType = new google.maps.StyledMapType(styles, { name: 'map-style'});
+map.mapTypes.set('map-style', styledMapType);
 
 App.Models.Locale = Backbone.Model.extend();
 
@@ -44,14 +67,13 @@ var localeData = [{
     icon: "images/beergarden-icon.png",
     hours: "bh",
     minutes: "bm",
-    seconds: "bs",
-    triggerTime: "1:00:00 PM",
-    countdownTime: "3:00:00 PM",
+    triggerTime: "12:03:00 AM",
+    countdownTime: "12:33:00 AM",
     endMessage: "Tapped..."
 },
 {
     localeName: "Carolina Ale House",
-    localeEventHours: "7 P.M. - 9 P.M.",
+    localeEventHours: "6:30 P.M. - 8:30 P.M.",
     lat: 34.849054, 
     lng: -82.399301,
     map: map,
@@ -60,14 +82,13 @@ var localeData = [{
     icon: "images/beergarden-icon.png",
     hours: "ch",
     minutes: "cm",
-    seconds: "cs",
-    triggerTime: "2:00:00 PM",
-    countdownTime: "4:00:00 PM",
+    triggerTime: "11:36:00 PM",
+    countdownTime: "11:58:00 PM",
     endMessage: "Tapped..."
 },
 {
     localeName: "Sharkey's Pub",
-    localeEventHours: "6 P.M. - 8 P.M.",
+    localeEventHours: "5:30 P.M. - 7:30 P.M.",
     lat: 34.851867, 
     lng: -82.398085,
     map: map,
@@ -76,14 +97,13 @@ var localeData = [{
     icon: "images/beergarden-icon.png",
     hours: "sh",
     minutes: "sm",
-    seconds: "ss",
-    triggerTime: "1:43:00 PM",
-    countdownTime: "7:00:00 PM",
+    triggerTime: "11:37:00 PM",
+    countdownTime: "11:50:00 PM",
     endMessage: "Tapped..."
 },
 {
     localeName: "The Cazbah",
-    localeEventHours: "6 P.M. - 8 P.M.",
+    localeEventHours: "5 P.M. - 7 P.M.",
     lat: 34.84994, 
     lng: -82.400044,
     map: map,
@@ -92,9 +112,8 @@ var localeData = [{
     icon: "images/beergarden-icon.png",
     hours: "cazbah-hours",
     minutes: "cazbah-minutes",
-    seconds: "cazbah-seconds",
-    triggerTime: "11:15:00 AM",
-    countdownTime: "4:00:00 PM",
+    triggerTime: "11:38:00 PM",
+    countdownTime: "11:48:00 PM",
     endMessage: "Tapped..."
 }];
 

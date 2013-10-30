@@ -24,7 +24,7 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <header id="primary-header" role="banner">
-            <h1>{ LocaleCountdown }</h1>
+            <h1 id="primary-heading">[ LocaleCountdown ]</h1>
             <div id="map-canvas"></div>
         </header>
         <section id="display" role="main">
@@ -38,10 +38,10 @@
                     <p>Happy Hours: <%= localeEventHours %></p>
                 </div>
                 <div class="locale-countdown">
-                    <span id=<%= hours %>>2</span>
-                    <span>hours</span>
+                    <span id=<%= hours %>>02</span>
+                    <span> hours </span>
                     <span id=<%= minutes %>>00</span>
-                    <span>minutes</span>
+                    <span> minutes </span>
                 </div>
             </div>
         </script>   
