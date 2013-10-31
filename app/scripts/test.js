@@ -61,7 +61,7 @@ function log () {
 	
 	});
 
-	test("Backbone.js && Google Maps API dependency checker...", function() {
+	test("Backbone.js and Google Maps API dependency checker...", function() {
 		
 		assert(google !== null || undefined, "- Google Maps API is avaliable to the application...");
 		assert(jQuery() !== null || undefined, "- jQuery is avaliable to the applicaiton...");
@@ -74,10 +74,24 @@ function log () {
 
 		pause();
 		setTimeout(function() {
-			App.Locales.add({});
-			assert(true, "- Test 'locale' model was initialized...");
+			App.Locales.add({
+				localeName: "A Test Locale...",
+    			localeEventHours: "5:30 P.M. - 7:30 P.M.",
+    			lat: 34.850775, 
+    			lng: -82.399402,
+    			map: map,
+    			info: "It's a test, dude/dudette!",
+    			title: "A test...",
+    			icon: "images/beergarden-icon.png",
+    			hours: "test-hours",
+    			minutes: "test-minutes",
+    			triggerTime: "11:45:00 PM",
+    			countdownTime: "12:30:00 AM",
+    			endMessage: "Tapped..."
+			});
+			assert(true, "- Test 'locale' model was initialized, its marker was added to the Google Maps API, and its countdown timer has started...");
 			resume();
-		}, 1000);
+		}, 3000);
 
 	});
 

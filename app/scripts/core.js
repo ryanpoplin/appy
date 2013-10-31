@@ -50,18 +50,6 @@ map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions),
 styledMapType = new google.maps.StyledMapType(styles, { name: 'map-style'});
 map.mapTypes.set('map-style', styledMapType);
 
-/*var infoWindow = new google.maps.InfoWindow;
-
-var onMarkerClick = function() {
-    var marker = this,
-    latLng = marker.getPosition();
-    infoWindow.open(map, marker);
-};
-
-google.maps.event.addListener(map, 'click', function() {
-    infoWindow.close();
-});*/
-
 App.Models.Locale = Backbone.Model.extend();
 
 App.Collections.Locale = Backbone.Collection.extend({
@@ -104,7 +92,7 @@ var localeData = [{
     lat: 34.851867, 
     lng: -82.398085,
     map: map,
-    info: "Affordable & loud happy hours here!",
+    info: "An affordable & loud happy hour spot!",
     title: "Sharkey's Pub",
     icon: "images/beergarden-icon.png",
     hours: "sharkey-hours",
@@ -220,8 +208,7 @@ function mapper(lat, lng, map, info, title, icon) {
   localeWindow = new google.maps.InfoWindow({
     content: "<h2 class='infowindow-heading'>"+localeTitle+"</h2><p class='infowindow-paragraph'>"+localeInfo+"</p>"
   });
-  // Refactor...
-  // Add for .locale elements...  
+  
   visibleWithIcon = false;
   google.maps.event.addDomListener(localeMarker, 'click', function () {
     if (visibleWithIcon === false) {
