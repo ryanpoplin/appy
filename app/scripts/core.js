@@ -50,6 +50,18 @@ map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions),
 styledMapType = new google.maps.StyledMapType(styles, { name: 'map-style'});
 map.mapTypes.set('map-style', styledMapType);
 
+/*var infoWindow = new google.maps.InfoWindow;
+
+var onMarkerClick = function() {
+    var marker = this,
+    latLng = marker.getPosition();
+    infoWindow.open(map, marker);
+};
+
+google.maps.event.addListener(map, 'click', function() {
+    infoWindow.close();
+});*/
+
 App.Models.Locale = Backbone.Model.extend();
 
 App.Collections.Locale = Backbone.Collection.extend({
@@ -62,13 +74,13 @@ var localeData = [{
     lat: 34.850925, 
     lng: -82.399889,
     map: map,
-    info: "Barley's Taproo and Pizzeria",
+    info: "An awesome restaurant & bar with fabulous pizzas, beers, and games.",
     title: "Barley's Taproom and Pizzeria",
     icon: "images/beergarden-icon.png",
-    hours: "bh",
-    minutes: "bm",
-    triggerTime: "12:03:00 AM",
-    countdownTime: "12:33:00 AM",
+    hours: "barley-hours",
+    minutes: "barley-minutes",
+    triggerTime: "9:30:00 PM",
+    countdownTime: "11:30:00 PM",
     endMessage: "Tapped..."
 },
 {
@@ -77,13 +89,13 @@ var localeData = [{
     lat: 34.849054, 
     lng: -82.399301,
     map: map,
-    info: "Carolina Ale House",
+    info: "With its retractable glass roof, enjoy happy hour with fresh air & a view of Main Street.",
     title: "Carolina Ale House",
     icon: "images/beergarden-icon.png",
-    hours: "ch",
-    minutes: "cm",
-    triggerTime: "11:36:00 PM",
-    countdownTime: "11:58:00 PM",
+    hours: "carolina-hours",
+    minutes: "carolina-minutes",
+    triggerTime: "9:31:00 PM",
+    countdownTime: "11:31:00 PM",
     endMessage: "Tapped..."
 },
 {
@@ -92,13 +104,13 @@ var localeData = [{
     lat: 34.851867, 
     lng: -82.398085,
     map: map,
-    info: "Sharkey's Pub",
-    title: "Carolina Ale House",
+    info: "Affordable & loud happy hours here!",
+    title: "Sharkey's Pub",
     icon: "images/beergarden-icon.png",
-    hours: "sh",
-    minutes: "sm",
-    triggerTime: "11:37:00 PM",
-    countdownTime: "11:50:00 PM",
+    hours: "sharkey-hours",
+    minutes: "sharkey-minutes",
+    triggerTime: "9:32:00 PM",
+    countdownTime: "11:32:00 PM",
     endMessage: "Tapped..."
 },
 {
@@ -107,13 +119,13 @@ var localeData = [{
     lat: 34.84994, 
     lng: -82.400044,
     map: map,
-    info: "The Cazbah",
+    info: "Tapas at happy hour. Enough said.",
     title: "The Cazbah",
     icon: "images/beergarden-icon.png",
     hours: "cazbah-hours",
     minutes: "cazbah-minutes",
-    triggerTime: "11:38:00 PM",
-    countdownTime: "11:48:00 PM",
+    triggerTime: "9:33:00 PM",
+    countdownTime: "11:33:00 PM",
     endMessage: "Tapped..."
 }];
 
@@ -124,7 +136,7 @@ App.Views.Locale = Backbone.View.extend({
     
     initialize: function (extras) {
         
-        _.bindAll(this, 'render', 'insert', 'openInfoWindow');
+        _.bindAll(this, 'render', 'insert');
         this.$container = extras.$container;
         this.listenTo(this.model, 'change', this.render);
         
@@ -172,9 +184,9 @@ App.Views.Locale = Backbone.View.extend({
         this.$container.append(this.$el); 
     },
     
-    openInfoWindow: function () {          
-        // console.log('asdfjkl;');           
-    }
+    /*openInfoWindow: function () {          
+        // localeWindow.open(map, localeMarker);
+    }*/
 });
 
 App.Views.Directory = Backbone.View.extend({
@@ -203,9 +215,10 @@ function mapper(lat, lng, map, info, title, icon) {
     title: title,
     icon: icon
   }),
+  localeTitle = title,
   localeInfo = info,
   localeWindow = new google.maps.InfoWindow({
-    content: localeInfo
+    content: "<h2 class='infowindow-heading'>"+localeTitle+"</h2><p class='infowindow-paragraph'>"+localeInfo+"</p>"
   });
   // Refactor...
   // Add for .locale elements...  

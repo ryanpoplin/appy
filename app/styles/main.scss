@@ -5,7 +5,7 @@ body {
 
 #primary-header {
     background-color: #ffffff;
-    box-shadow: 0 3px 3px #d7d7d7;
+    box-shadow: 0 3px 3px #e0e0e0;
     left:0;
     position: fixed;
     top:0;
@@ -17,7 +17,6 @@ body {
         padding: 5px 0 9px 75px;
     }
     #map-canvas {
-        border-top: 1px solid #cccccc;
         height: 310px;      
     }
     @media (max-width: 830px) {
@@ -28,29 +27,41 @@ body {
     }
 }
 
+.infowindow-heading {
+    color: #49AEC0;
+    font-size: 1.875em;
+    padding: 5px 0 5px 0;
+}
+.infowindow-paragraph {
+    color: #303030;
+    font-size: 1.5625em;
+    line-height: 30px;
+    padding: 5px 0 5px 0;
+}
+
 #display {
     margin-top: 348px;
 }
 
 .locale {
-    border-top: 1px solid #cccccc;
-    background-color: #e8e8e8;
+    border-top: 1px solid #B0B0B0;
+    background-color: #49AEC0;
     cursor: pointer;    
     padding: 10px 75px 10px 75px;
     h2 {
         padding: 10px 0 5px 0;
-        color: #49AEC0;
+        color: #fefefe;
         font-size: 2.5em;
         font-weight: 100;
     }
     p {
         padding: 5px 0 10px 0;
-        color: #606060;
+        color: #303030;
         font-size: 1.5625em;
         font-weight: 100;
     }
     span {
-        color: #DD577A;
+        color: #fefefe;
         font-size: 2.1625em;
         font-weight: 100;
     }
@@ -60,7 +71,7 @@ body {
     .locale-countdown {
         display: inline-block;
         float: right;
-        padding-top: 5px;
+        padding-top: 10px;
         vertical-align: top;
     }
     @media (max-width: 1100px) {
@@ -103,11 +114,11 @@ body {
 }
 
 .locale:hover {
-    background-color: #e1e1e1;
+    background-color: #39AEC0;
 }
 
 /*.locale-selected {
-    background-color: #f0f0f0;
+    background-color: #f8f0f0;
 }*/  
 
 #results {
