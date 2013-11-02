@@ -85,7 +85,7 @@ function log () {
     			icon: "images/beergarden-icon.png",
     			hours: "test-hours",
     			minutes: "test-minutes",
-    			triggerTime: "11:45:00 PM",
+    			triggerTime: "12:00:00 AM",
     			countdownTime: "12:30:00 AM",
     			endMessage: "Tapped..."
 			});
