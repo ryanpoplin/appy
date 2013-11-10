@@ -13,6 +13,43 @@ function log () {
 	}
 }
 
+// Testless section...
+
+function startup() {
+	log('Ryan is programming...');
+}
+$(function(){
+	startup();
+});
+window.onload = function() {
+	setTimeout(function(){	
+		startup(); 
+	}, 3000);
+	log('Ryan is faking it until he\'s making it...');
+}
+// Function is declared...
+// Can take in one parameter...
+function stupid(callback) {
+    // The function passed into be invoked... 
+	console.log(callback);
+	// Expects the parameter that's passed in to be a function that it can invoke.
+	return callback(); 
+}
+
+var elements = [23, 28, 34, 31];
+// .sort() is an array method...
+elements.sort();
+log(elements);
+elements = [123, 432, 532, 53];
+// What the hell...
+elements.sort(function(a,b){ return b - a; });
+log(elements);
+
+
+
+
+// Testless section ends...
+
 (function() {
 
 	var queue = [], paused = false, results;
@@ -70,7 +107,7 @@ function log () {
 		
 	});
 
-	test("A test 'locale' model should initialize...", function() {
+	/*test("A test 'locale' model should initialize...", function() {
 
 		pause();
 		setTimeout(function() {
@@ -85,14 +122,26 @@ function log () {
     			icon: "images/beergarden-icon.png",
     			hours: "test-hours",
     			minutes: "test-minutes",
-    			triggerTime: "12:00:00 AM",
-    			countdownTime: "12:30:00 AM",
+    			triggerTime: "1:58:00 PM",
+    			countdownTime: "8:00:00 PM",
     			endMessage: "Tapped..."
 			});
 			assert(true, "- Test 'locale' model was initialized, its marker was added to the Google Maps API, and its countdown timer has started...");
 			resume();
-		}, 3000);
+		}, 2000);
 
-	});
+	});*/
+
+	/*test("Backbone tigger event...", function() {
+			
+		var object = {};
+		_.extend(object, Backbone.Events);
+		object.on("triggerIt", function(msg) {
+  			log("Triggered " + msg);
+		});
+		object.trigger("triggerIt", "an event");
+		assert(true, "Event has triggered...");
+		
+	});*/
 
 })();

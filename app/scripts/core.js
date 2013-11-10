@@ -72,8 +72,8 @@ var localeData = [{
     toggle: "barley",
     hours: "barley-hours",
     minutes: "barley-minutes",
-    triggerTime: "4:00:00 PM",
-    countdownTime: "6:00:00 PM",
+    triggerTime: "9:00:00 AM",
+    countdownTime: "11:00:00 AM",
     endMessage: "Tapped..."
 },
 {
@@ -88,8 +88,8 @@ var localeData = [{
     toggle: "carolina",
     hours: "carolina-hours",
     minutes: "carolina-minutes",
-    triggerTime: "4:10:00 PM",
-    countdownTime: "6:10:00 PM",
+    triggerTime: "1:38:00 AM",
+    countdownTime: "4:10:00 PM",
     endMessage: "Tapped..."
 },
 {
@@ -104,8 +104,8 @@ var localeData = [{
     toggle: "sharkey",
     hours: "sharkey-hours",
     minutes: "sharkey-minutes",
-    triggerTime: "4:20:00 PM",
-    countdownTime: "6:20:00 PM",
+    triggerTime: "9:20:00 AM",
+    countdownTime: "1:20:00 PM",
     endMessage: "Tapped..."
 },
 {
@@ -120,8 +120,8 @@ var localeData = [{
     toggle: "cazbah",
     hours: "cazbah-hours",
     minutes: "cazbah-minutes",
-    triggerTime: "6:30:00 PM",
-    countdownTime: "8:30:00 PM",
+    triggerTime: "11:24:00 PM",
+    countdownTime: "9:00:00 PM",
     endMessage: "Tapped..."
 }];
 
@@ -150,8 +150,8 @@ App.Views.Locale = Backbone.View.extend({
             icon = this.model.get("icon");
         
         this.$el.addClass(toggle); 
-        var ref = undefined;
-        mapper(lat, lng, map, info, title, icon, ref);
+        console.log(this.$el);
+        mapper(lat, lng, map, info, title, icon);
         
         var hours = this.model.get("hours"),
             minutes = this.model.get("minutes"),
@@ -195,8 +195,7 @@ App.Views.Locale = Backbone.View.extend({
     },
     
     openInfoWindow: function () {
-        // console.log(this.model.get('localeName'));
-        // localeWindow.open(map, localeMarker);
+        log('asdfjkl;');
     }
 });
 
@@ -225,7 +224,7 @@ App.Views.Directory = Backbone.View.extend({
 
 });
 
-function mapper(lat, lng, map, info, title, icon, ref) {
+function mapper(lat, lng, map, info, title, icon) {
   var localeLocation = new google.maps.LatLng(lat, lng),
   localeMarker = new google.maps.Marker({
     position: localeLocation,
